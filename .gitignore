@@ -1,0 +1,42 @@
+﻿# Virtual environments
+venv/
+.venv/
+env/
+**/venv/
+**/.venv/
+
+# Node dependencies & build output
+node_modules/
+**/node_modules/
+dist/
+build/
+.vite/
+.npm/
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment & local config
+.env
+.env.local
+.env.*.local
+*.env
+
+# Large archives
+*.zip
+*.tar.gz
+*.rar
+
+# Model binaries & checkpoints
+*.keras
+*.pkl
+**/models/plant_models/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

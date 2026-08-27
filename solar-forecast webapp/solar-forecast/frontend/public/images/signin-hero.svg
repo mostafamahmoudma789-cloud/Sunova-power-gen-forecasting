@@ -1,0 +1,100 @@
+<svg viewBox="0 0 900 1100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a12"/>
+      <stop offset="55%" stop-color="#14101f"/>
+      <stop offset="100%" stop-color="#1b1230"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb627" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#f59810" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f59810" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="waveGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffb627" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#ffb627" stop-opacity="0.9"/>
+      <stop offset="85%" stop-color="#ffb627" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffb627" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="waveFlux" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00d9c0" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#00d9c0" stop-opacity="0.75"/>
+      <stop offset="85%" stop-color="#00d9c0" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#00d9c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#241847" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0a0a12" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1100" fill="url(#sky)"/>
+
+  <!-- ambient sun glow, upper field -->
+  <circle cx="640" cy="230" r="340" fill="url(#sunGlow)"/>
+  <circle cx="640" cy="230" r="46" fill="#ffb627" opacity="0.9"/>
+  <circle cx="640" cy="230" r="46" fill="none" stroke="#ffb627" stroke-opacity="0.35" stroke-width="1.5">
+    <animate attributeName="r" values="46;70;46" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" values="0.35;0;0.35" dur="6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- faint horizon grid, instrument feel -->
+  <g stroke="#3c2a79" stroke-opacity="0.25" stroke-width="1">
+    <line x1="0" y1="470" x2="900" y2="470"/>
+    <line x1="0" y1="560" x2="900" y2="560"/>
+    <line x1="0" y1="650" x2="900" y2="650"/>
+  </g>
+
+  <!-- POA irradiance waveform — the actual shape of a solar power curve -->
+  <path d="M -20 660
+           C 60 660, 90 660, 140 640
+           C 220 600, 260 420, 340 380
+           C 400 350, 440 350, 480 380
+           C 540 420, 580 600, 660 640
+           C 720 660, 780 660, 920 660"
+        fill="none" stroke="url(#waveGold)" stroke-width="3.5"/>
+
+  <path d="M -20 690
+           C 60 690, 100 690, 150 675
+           C 230 650, 270 500, 340 470
+           C 400 445, 440 445, 480 470
+           C 550 500, 590 650, 660 675
+           C 720 690, 780 690, 920 690"
+        fill="none" stroke="url(#waveFlux)" stroke-width="2.5" stroke-dasharray="2 6" opacity="0.8"/>
+
+  <!-- solar panel array, lower field, perspective grid -->
+  <g transform="translate(0,760)">
+    <path d="M -40 340 L 180 40 L 720 40 L 940 340 Z" fill="url(#panelFill)" stroke="#472f96" stroke-opacity="0.5"/>
+    <!-- panel rows -->
+    <g stroke="#7c6ff0" stroke-opacity="0.35" stroke-width="1">
+      <line x1="20" y1="300" x2="880" y2="300"/>
+      <line x1="60" y1="230" x2="840" y2="230"/>
+      <line x1="105" y1="165" x2="795" y2="165"/>
+      <line x1="150" y1="105" x2="750" y2="105"/>
+    </g>
+    <!-- panel columns (converging perspective) -->
+    <g stroke="#7c6ff0" stroke-opacity="0.3" stroke-width="1">
+      <line x1="180" y1="40" x2="-40" y2="340"/>
+      <line x1="280" y1="40" x2="120" y2="340"/>
+      <line x1="380" y1="40" x2="280" y2="340"/>
+      <line x1="450" y1="40" x2="450" y2="340"/>
+      <line x1="520" y1="40" x2="620" y2="340"/>
+      <line x1="620" y1="40" x2="780" y2="340"/>
+      <line x1="720" y1="40" x2="940" y2="340"/>
+    </g>
+    <!-- gold accent glints on a few panel cells -->
+    <rect x="360" y="90" width="55" height="35" fill="#ffb627" opacity="0.10"/>
+    <rect x="470" y="150" width="70" height="45" fill="#00d9c0" opacity="0.08"/>
+    <rect x="250" y="230" width="90" height="55" fill="#ffb627" opacity="0.06"/>
+  </g>
+
+  <!-- data-instrument dots, decorative -->
+  <g fill="#ffb627">
+    <circle cx="340" cy="380" r="4"/>
+    <circle cx="480" cy="380" r="4" opacity="0.6"/>
+  </g>
+  <g fill="#00d9c0" opacity="0.7">
+    <circle cx="340" cy="470" r="3"/>
+    <circle cx="480" cy="470" r="3" opacity="0.5"/>
+  </g>
+</svg>
