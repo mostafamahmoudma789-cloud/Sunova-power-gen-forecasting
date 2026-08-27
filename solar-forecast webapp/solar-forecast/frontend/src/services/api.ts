@@ -1,16 +1,13 @@
 import { ExistingPlantInfo, ForecastResponse, NewPlantFormData, WeatherSequenceRow } from '../types';
 
-// Centralized API Base URL with environment variable fallback
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+// Centralized API Base URL pointing to your Render backend
+export const API_BASE_URL = 'https://sunova-backend.onrender.com';
 
-// Helper to determine the request URL based on environment and proxy setup
+// Helper to determine the request URL
 const getUrl = (path: string): string => {
-  if (import.meta.env.VITE_API_URL) {
-    const base = import.meta.env.VITE_API_URL.replace(/\/+$/, '');
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return `${base}${cleanPath}`;
-  }
-  return path.startsWith('/') ? path : `/${path}`;
+  const base = API_BASE_URL.replace(/\/+$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
 };
 
 export interface HealthResponse {
